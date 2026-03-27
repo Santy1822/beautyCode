@@ -1,0 +1,14 @@
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\bin\Debug\net10.0\ejercisio1.exe
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\bin\Debug\net10.0\ejercisio1.deps.json
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\bin\Debug\net10.0\ejercisio1.runtimeconfig.json
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\bin\Debug\net10.0\ejercisio1.dll
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\bin\Debug\net10.0\ejercisio1.pdb
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\obj\Debug\net10.0\ejercisio1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\obj\Debug\net10.0\ejercisio1.AssemblyInfoInputs.cache
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\obj\Debug\net10.0\ejercisio1.AssemblyInfo.cs
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\obj\Debug\net10.0\ejercisio1.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\obj\Debug\net10.0\ejercisio1.dll
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\obj\Debug\net10.0\refint\ejercisio1.dll
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\obj\Debug\net10.0\ejercisio1.pdb
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\obj\Debug\net10.0\ejercisio1.genruntimeconfig.cache
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\obj\Debug\net10.0\ref\ejercisio1.dll

@@ -1,0 +1,79 @@
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\bin\Debug\net10.0\appsettings.Development.json
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\bin\Debug\net10.0\appsettings.json
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\bin\Debug\net10.0\beautyCode.staticwebassets.endpoints.json
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\bin\Debug\net10.0\beautyCode.exe
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\bin\Debug\net10.0\beautyCode.deps.json
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\bin\Debug\net10.0\beautyCode.runtimeconfig.json
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\bin\Debug\net10.0\beautyCode.dll
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\bin\Debug\net10.0\beautyCode.pdb
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\bin\Debug\net10.0\Microsoft.OpenApi.dll
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\bin\Debug\net10.0\MySqlConnector.dll
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\bin\Debug\net10.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\obj\Debug\net10.0\beautyCode.csproj.AssemblyReference.cache
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\obj\Debug\net10.0\beautyCode.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\obj\Debug\net10.0\beautyCode.AssemblyInfoInputs.cache
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\obj\Debug\net10.0\beautyCode.AssemblyInfo.cs
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\obj\Debug\net10.0\beautyCode.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\obj\Debug\net10.0\beautyCode.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\obj\Debug\net10.0\beautyCode.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\obj\Debug\net10.0\rjimswa.dswa.cache.json
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\obj\Debug\net10.0\scopedcss\bundle\beautyCode.styles.css
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\obj\Debug\net10.0\staticwebassets.build.json
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\obj\Debug\net10.0\staticwebassets.build.json.cache
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\obj\Debug\net10.0\staticwebassets.development.json
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\obj\Debug\net10.0\swae.build.ex.cache
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\obj\Debug\net10.0\beautyCode.csproj.Up2Date
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\obj\Debug\net10.0\beautyCode.dll
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\obj\Debug\net10.0\refint\beautyCode.dll
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\obj\Debug\net10.0\beautyCode.pdb
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\obj\Debug\net10.0\beautyCode.genruntimeconfig.cache
+C:\Users\USUARIO\OneDrive\Documentos\EJERCISIOS .NET\ejercisio1\beautyCode\obj\Debug\net10.0\ref\beautyCode.dll
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\bin\Debug\net10.0\appsettings.Development.json
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\bin\Debug\net10.0\appsettings.json
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\bin\Debug\net10.0\beautyCode.staticwebassets.endpoints.json
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\bin\Debug\net10.0\beautyCode.exe
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\bin\Debug\net10.0\beautyCode.deps.json
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\bin\Debug\net10.0\beautyCode.runtimeconfig.json
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\bin\Debug\net10.0\beautyCode.dll
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\bin\Debug\net10.0\beautyCode.pdb
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\bin\Debug\net10.0\Microsoft.OpenApi.dll
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\bin\Debug\net10.0\MySqlConnector.dll
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\bin\Debug\net10.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\obj\Debug\net10.0\beautyCode.csproj.AssemblyReference.cache
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\obj\Debug\net10.0\beautyCode.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\obj\Debug\net10.0\beautyCode.AssemblyInfoInputs.cache
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\obj\Debug\net10.0\beautyCode.AssemblyInfo.cs
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\obj\Debug\net10.0\beautyCode.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\obj\Debug\net10.0\beautyCode.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\obj\Debug\net10.0\beautyCode.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\obj\Debug\net10.0\rjimswa.dswa.cache.json
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\obj\Debug\net10.0\scopedcss\bundle\beautyCode.styles.css
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\obj\Debug\net10.0\staticwebassets.build.json
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\obj\Debug\net10.0\staticwebassets.build.json.cache
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\obj\Debug\net10.0\staticwebassets.development.json
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\obj\Debug\net10.0\swae.build.ex.cache
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\obj\Debug\net10.0\beautyCode.csproj.Up2Date
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\obj\Debug\net10.0\beautyCode.dll
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\obj\Debug\net10.0\refint\beautyCode.dll
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\obj\Debug\net10.0\beautyCode.pdb
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\obj\Debug\net10.0\beautyCode.genruntimeconfig.cache
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\obj\Debug\net10.0\ref\beautyCode.dll
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\USUARIO\OneDrive\Documentos\beautyCode\beautyCode\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll

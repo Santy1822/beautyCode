@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empleados - Panel Admin</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="dashboard-body">
+
+    <header>
+        <nav id="menu-admin">
+            <div>
+                <img src="img/logo con delineado.png" class="logo">
+            </div>
+
+            <div>
+                <a href="dashboard-admin.html">
+                    <img src="img/iconos/juego-tablero-alt.png" style="width:20px; padding-right:7px">Dashboard</a>
+                <a href="admin-servicios.html">
+                    <img src="img/iconos/bolsas-de-compras.png" style="width:22px; padding-right:7px">Servicios</a>
+                <a href="admin-galeria.html">
+                    <img src="img/iconos/copiar-imagen.png" style="width:23px; padding-right:7px">Galería</a>
+                <a href="admin-empleados.html">
+                    <img src="img/iconos/empleados-mujer-hombre.png" style="width:23px; padding-right:6px">Empleados</a>
+                <a href="admin-disponibilidad.html">
+                    <img src="img/iconos/chequeo-de-tiempo.png" style="width:23px; padding-right: 7px;">Disponibilidad</a>
+                <a href="admin-citas.html">
+                    <img src="img/iconos/dia-del-calendario.png" style="width:21px; padding-right:7px">Citas</a>
+            </div>
+
+            <a href="login.html">
+                <button class="boton-citas">Cerrar Sesión</button>
+            </a>
+        </nav>
+    </header>
+    <main class="admin-container">
+
+    <h1>Disponibilidad</h1>
+    <p>Gestiona horarios de los empleados.</p>
+
+    <section class="admin-card">
+
+    <h2>Configurar Horario del Salón</h2>
+
+    <form id="disponibilidadForm" class="admin-form">
+
+        <label class="form-label">Día de la semana</label>
+        <select id="diaSemana" class="form-control" required>
+            <option disabled selected>Seleccione...</option>
+            <option>Lunes</option>
+            <option>Martes</option>
+            <option>Miércoles</option>
+            <option>Jueves</option>
+            <option>Viernes</option>
+            <option>Sábado</option>
+        </select>
+
+        <label class="form-label">Hora de apertura</label>
+        <input type="time" id="horaInicio" class="form-control" required>
+
+        <label class="form-label">Hora de cierre</label>
+        <input type="time" id="horaFin" class="form-control" required>
+
+        <button type="submit" class="btn-primary mt-3">Guardar Disponibilidad</button>
+
+    </form>
+
+</section>
+
+<div class="admin-card">
+    <h2>Horarios Registrados</h2>
+
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th>Día</th>
+                <th>Apertura</th>
+                <th>Cierre</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="listaDisponibilidad"></tbody>
+    </table>
+</div>
+
+
+</main>
+</body>
+</html>

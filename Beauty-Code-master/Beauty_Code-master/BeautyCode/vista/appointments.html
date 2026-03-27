@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Code - Citas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="index-body">
+
+    <header>
+    <nav id="menu">
+        <div>
+            <img src="img/logo con delineado.png" alt="Logo Beauty Code", class="logo">
+        </div>
+        
+        <div>
+            <a href="index.html">
+                <img src="img/iconos/chimenea-de-la-casa.png" style="width:20px;padding-right:7px">Inicio</a>
+            <a href="services.html">
+                <img src="img/iconos/bolsas-de-compras.png" style="width:22px;padding-right:7px">Servicios</a>
+            <a href="gallery.html">
+                <img src="img/iconos/copiar-imagen.png" style="width:23px;padding-right:7px">Galería</a>
+            <a href="reviews.html">
+                <img src="img/iconos/revision-de-comentarios.png" style="width:23px;padding-right:7px">Reseñas</a>
+            <a href="appointments.html">
+                <img src="img/iconos/dia-del-calendario.png" style="width:20px;padding-right:7px">Citas</a>
+            <a href="perfil.html">
+                <img src="img/iconos/lapiz-de-usuario.png" style="width:21px;padding-right:7px">Perfil</a>
+            <a href="login.html">Iniciar Sesión</a>
+        </div>
+    </nav>
+    </header>
+
+    <main class="cita-container">
+
+    <h1 class="title">Agendar una Cita</h1>
+    <p class="subtitle">Selecciona el servicio, especialista, fecha y hora.</p>
+
+        <!-- Seleccionar servicio -->
+        <div id="paso1">
+            <h3>Paso 1: Selecciona un servicio</h3>
+            <select id="servicioSelect" class="form-control" required>
+                <option value="">Seleccione...</option>
+            </select>
+            <button class="btn-primary btn-error mt-3" 
+            onclick="nextStep(1)" style="margin-bottom: 35px;">Siguiente</button>
+        </div>
+
+        <!-- Seleccionar empleado -->
+        <div id="paso2" class="d-none">
+            <h3>Paso 2: Selecciona a tu manicurista</h3>
+            <select id="empleadoSelect" class="form-control" required
+            onchange="generarHorasDisponibles()">
+                <option value="">Seleccione...</option>
+            </select>
+            <button class="btn-primary btn-error mt-3" 
+            onclick="nextStep(2)" style="margin-bottom: 35px;">Siguiente</button>
+        </div>
+
+        <!-- Fecha -->
+        <div id="paso3" class="d-none">
+            <h3>Paso 3: Selecciona una fecha</h3>
+            <input id="fechaInput" type="date" class="form-control" required
+            onchange="generarHorasDisponibles()">
+            <button class="btn-primary btn-error mt-3" 
+            onclick="nextStep(3)" style="margin-bottom: 35px;">Siguiente</button>
+        </div>
+
+        <!-- Hora -->
+        <div id="paso4" class="d-none">
+            <h3>Paso 4: Selecciona una hora disponible</h3>
+            <div id="horaContainer"></div>
+            <input type="time" id="horaInput" class="form-control"
+            step="3600" min="09:00" max="17:00" required readonly>
+            <button class="btn-primary btn-error mt-3" 
+            onclick="nextStep(4)" style="margin-bottom: 35px;">Siguiente</button>
+        </div>
+
+        <!-- Resumen cita -->
+        <div id="paso5" class="d-none">
+            <h3>Resumen de tu cita</h3>
+            <div id="resumenBox" class="tarjeta" style="background:#fff; padding:15px; border-radius:12px;">
+                <!--Js llena esto-->
+            </div>
+            <button class="btn-primary btn-error mt-03" 
+            onclick="nextStep(5)" style="margin-bottom: 35px;">Continuar</button>
+        </div>
+
+        <!-- Subir comprobante -->
+        <div id="paso6" class="d-none">
+            <h3>Paso 5: Subir comprobante (10% del valor)</h3>
+            <input type="file" id="comprobante" accept="image/*" class="form-control" required>
+            <button class="btn-primary btn-error mt-3" 
+            onclick="nextStep(6)" style="margin-bottom: 35px;">Finalizar</button>
+        </div>
+
+        <!-- Finalizar -->
+        <div id="paso7" class="d-none">
+            <h3>Confirmar</h3>
+            <div id="resumenFinal" class="tarjeta" style="background:#fff; padding:15px; border-radius:12px;">
+                <!-- JS llena esto -->
+            </div>
+            
+            <button class="btn-primary btn-error mt-3" onclick="guardarCita()">Confirmar Cita</button>
+        </div>
+
+    <!-- Citas registradas -->
+    <div class="tarjeta mt-4" style="background-color: #fff;">
+        <h3>Mis Citas Registradas</h3>
+
+        <table class="table text-center">
+            <thead>
+                <tr>
+                    <th>Servicio</th>
+                    <th>Especialista</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tablaCitas"></tbody>
+        </table>
+    </div>
+
+</main>
+
+
+    <footer id="footer">
+        © 2025 Beauty Code – Agenda de Manicura
+        <br> Desarrollado por Iron Code
+    </footer>
+    
+    <script src="js/appointments.js"></script>
+</body>
+</html>

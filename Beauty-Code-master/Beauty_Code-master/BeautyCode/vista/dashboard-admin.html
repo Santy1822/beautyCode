@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Code - Panel Administrador</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="dashboard-body">
+    <header>
+        <nav id="menu-admin">
+            <div>
+                <img src="img/logo con delineado.png" class="logo">
+            </div>
+
+            <div>
+                <a href="dashboard-admin.html"><img src="img/iconos/juego-tablero-alt.png" style="width:20px; padding-right:7px">Dashboard</a>
+                <a href="admin-servicios.html"><img src="img/iconos/bolsas-de-compras.png" style="width:22px; padding-right:7px">Servicios</a>
+                <a href="admin-galeria.html"><img src="img/iconos/copiar-imagen.png" style="width:23px; padding-right:7px">Galería</a>
+                <a href="admin-empleados.html"><img src="img/iconos/empleados-mujer-hombre.png" style="width:23px; padding-right:6px">Empleados</a>
+                <a href="admin-disponibilidad.html"><img src="img/iconos/chequeo-de-tiempo.png" style="width:23px; padding-right:7px">Disponibilidad</a>
+                <a href="admin-citas.html"><img src="img/iconos/dia-del-calendario.png" style="width:21px; padding-right:7px">Citas</a>
+            </div>
+
+            <a href="login.html">
+                <button class="boton-citas">Cerrar Sesión</button>
+            </a>
+        </nav>
+    </header>
+
+    <main class="dashboard-container">
+
+        <h1>Panel del Administrador</h1>
+        <p class="dashboard-subtitle">Gestiona todos los módulos del sistema</p>
+
+        <!-- Tarjetas de estadísticas -->
+        <div class="dashboard-grid">
+            <div class="dash-card">
+                <h2 id="totalServicios">0</h2>
+                <p>Servicios Registrados</p>
+            </div>
+
+            <div class="dash-card">
+                <h2 id="totalEmpleados">0</h2>
+                <p>Empleados Activos</p>
+            </div>
+
+            <div class="dash-card">
+                <h2 id="totalCitas">0</h2>
+                <p>Citas Agendadas</p>
+            </div>
+
+            <div class="dash-card">
+                <h2 id="totalImagenes">0</h2>
+                <p>Imágenes en Galería</p>
+            </div>
+        </div>
+
+        <!-- Tabla general de citas -->
+        <div class="admin-card mt-4">
+            <h2>Todas las Citas</h2>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Cliente</th>
+                        <th>Servicio</th>
+                        <th>Empleado</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tablaCitasAdmin">
+                    <!-- JS insertará citas -->
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <script src="js/dashboard-admin.js"></script>
+    <span id="totalServicios"></span>
+<span id="totalEmpleados"></span>
+<span id="totalImagenes"></span>
+
+<table>
+  <tbody id="tablaCitas"></tbody>
+</table>
+
+<script src="js/dashboard-admin.js"></script>
+</body>
+</html>
