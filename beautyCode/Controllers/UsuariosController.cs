@@ -34,5 +34,32 @@ namespace beautyCode.Controllers
             }
             return Ok("inicio de sesion exitoso");
         }
+        [HttpGet]
+        public async Task<IActionResult> GetUsuarios()
+        {
+            var usuarios = await _context.Usuarios.ToListAsync();
+            return Ok(usuarios);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> EliminarUsuario(string id)
+        {
+            var usuario = await _context.Usuarios.FirstOrDefaultAsync(u => u.NoDocumento == id);
+            if (usuario == null) return NotFound();
+
+            _context.Usuarios.Remove(usuario);
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> ActualizarRol(string id, [FromBody] Usuario usuario)
+        {
+            var usuarioExistente = await _context.Usuarios.FirstOrDefaultAsync(u => u.NoDocumento == id);
+            if (usuarioExistente == null) return NotFound();
+
+            usuarioExistente.IdRol = usuario.IdRol;
+            await _context.SaveChangesAsync();
+            return Ok(usuarioExistente);
+        }
     }
 }

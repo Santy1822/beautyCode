@@ -15,5 +15,6 @@ namespace beautyCode.Data
         public DbSet<Resenas> Resenas { get; set; }
         public DbSet<Pago> Pagos { get; set; }
         public DbSet<Disponibilidad> Disponibilidades { get; set; }
+        public DbSet<Especialidad> Especialidades { get; set; }
     }
 }
