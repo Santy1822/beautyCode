@@ -79,42 +79,34 @@
             <tbody id="employeeList"></tbody>
         </table>
     </div>
+<section class="admin-card">
+    <h2>Cambiar Rol a Empleado</h2>
+    <p>Busca un usuario registrado y cámbiale el rol a Empleado.</p>
 
+    <div class="admin-form">
+        <label class="form-label">Número de documento del usuario</label>
+        <input type="text" id="buscarDocumento" class="form-control" 
+        placeholder="Ej: 123456789">
+
+        <button onclick="buscarUsuario()" class="btn-primary mt-3">Buscar Usuario</button>
+    </div>
+
+    <div id="resultadoBusqueda" style="margin-top:15px;display:none;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Rol Actual</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody id="filaBusqueda"></tbody>
+        </table>
+    </div>
+</section>
 </main>
 
-<script>
-    const form = document.querySelector(".admin-form");
-    const employeeList = document.getElementById("employeeList");
-
-    form.addEventListener("submit", function (e) {
-        e.preventDefault(); // evita recargar la página
-
-        const inputs = form.querySelectorAll("input");
-        const nombre = inputs[0].value;
-        const telefono = inputs[1].value;
-        const especialidad = inputs[2].value;
-
-        // Crear fila
-        const row = document.createElement("tr");
-        row.innerHTML = `
-            <td>${nombre}</td>
-            <td>${telefono}</td>
-            <td>${especialidad}</td>
-            <td>
-                <button class="btn btn-danger btn-sm eliminar-btn">Eliminar</button>
-            </td>
-        `;
-
-        employeeList.appendChild(row);
-
-        // Evento para eliminar fila
-        row.querySelector(".eliminar-btn").addEventListener("click", () => {
-            row.remove();
-        });
-
-        form.reset();
-    });
-</script>
-
+<script src="js/admin-empleados.js"></script>
 </body>
 </html>

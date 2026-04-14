@@ -7,118 +7,369 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .stepper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0;
+            margin: 30px auto;
+            max-width: 600px;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            flex: 1;
+        }
+
+        .step-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #e0c9cb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #fff;
+            transition: background 0.3s;
+            z-index: 1;
+        }
+
+        .step.active .step-circle {
+            background: #6B0C17;
+        }
+
+        .step.done .step-circle {
+            background: #a0444e;
+        }
+
+        .step-label {
+            font-size: 12px;
+            margin-top: 6px;
+            color: #999;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .step.active .step-label {
+            color: #6B0C17;
+            font-weight: 600;
+        }
+
+        .step-line {
+            flex: 1;
+            height: 3px;
+            background: #e0c9cb;
+            margin-bottom: 22px;
+            transition: background 0.3s;
+        }
+
+        .step-line.done {
+            background: #6B0C17;
+        }
+
+        .paso-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 650px;
+            margin: 0 auto 30px auto;
+            box-shadow: 0 4px 20px rgba(107,12,23,0.08);
+        }
+
+        .paso-card h3 {
+            color: #6B0C17;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .servicio-card {
+            border: 2px solid #e0c9cb;
+            border-radius: 12px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .servicio-card:hover {
+            border-color: #6B0C17;
+            background: #fff5f5;
+        }
+
+        .servicio-card.selected {
+            border-color: #6B0C17;
+            background: #fff0f1;
+        }
+
+        .servicio-card .nombre {
+            font-weight: 600;
+            color: #333;
+            font-size: 15px;
+        }
+
+        .servicio-card .precio {
+            color: #6B0C17;
+            font-weight: 700;
+            font-size: 16px;
+            margin-top: 8px;
+        }
+
+        .servicio-card .duracion {
+            color: #888;
+            font-size: 13px;
+        }
+
+        .empleados-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .empleado-card {
+            border: 2px solid #e0c9cb;
+            border-radius: 12px;
+            padding: 20px 15px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .empleado-card:hover {
+            border-color: #6B0C17;
+            background: #fff5f5;
+        }
+
+        .empleado-card.selected {
+            border-color: #6B0C17;
+            background: #fff0f1;
+        }
+
+        .empleado-card .avatar {
+            font-size: 35px;
+            margin-bottom: 8px;
+        }
+
+        .empleado-card .emp-nombre {
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .horas-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .hora-btn {
+            padding: 8px 18px;
+            border: 2px solid #e0c9cb;
+            border-radius: 8px;
+            background: #fff;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .hora-btn:hover {
+            border-color: #6B0C17;
+            background: #fff5f5;
+        }
+
+        .hora-btn.selected {
+            border-color: #6B0C17;
+            background: #6B0C17;
+            color: #fff;
+        }
+
+        .resumen-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0e0e0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .resumen-item:last-child {
+            border-bottom: none;
+        }
+
+        .resumen-label {
+            color: #888;
+            font-size: 14px;
+        }
+
+        .resumen-valor {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .btn-siguiente {
+            background: #6B0C17;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 35px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            transition: background 0.2s;
+        }
+
+        .btn-siguiente:hover {
+            background: #8B1020;
+        }
+
+        .btn-volver {
+            background: transparent;
+            color: #6B0C17;
+            border: 2px solid #6B0C17;
+            border-radius: 10px;
+            padding: 10px 25px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 10px;
+            margin-right: 10px;
+            transition: all 0.2s;
+        }
+
+        .btn-volver:hover {
+            background: #fff0f1;
+        }
+
+        .citas-tabla {
+            background: #fff;
+            border-radius: 16px;
+            padding: 25px;
+            max-width: 650px;
+            margin: 0 auto 40px auto;
+            box-shadow: 0 4px 20px rgba(107,12,23,0.08);
+        }
+
+        .citas-tabla h3 {
+            color: #6B0C17;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+    </style>
 </head>
 
 <body class="index-body">
 
-    <header>
+<header>
     <nav id="menu">
         <div>
-            <img src="img/logo con delineado.png" alt="Logo Beauty Code", class="logo">
+            <img src="img/logo con delineado.png" alt="Logo Beauty Code" class="logo">
         </div>
-        
         <div>
-            <a href="index.html">
-                <img src="img/iconos/chimenea-de-la-casa.png" style="width:20px;padding-right:7px">Inicio</a>
-            <a href="services.html">
-                <img src="img/iconos/bolsas-de-compras.png" style="width:22px;padding-right:7px">Servicios</a>
-            <a href="gallery.html">
-                <img src="img/iconos/copiar-imagen.png" style="width:23px;padding-right:7px">Galería</a>
-            <a href="reviews.html">
-                <img src="img/iconos/revision-de-comentarios.png" style="width:23px;padding-right:7px">Reseñas</a>
-            <a href="appointments.html">
-                <img src="img/iconos/dia-del-calendario.png" style="width:20px;padding-right:7px">Citas</a>
-            <a href="perfil.html">
-                <img src="img/iconos/lapiz-de-usuario.png" style="width:21px;padding-right:7px">Perfil</a>
+            <a href="index.html"><img src="img/iconos/chimenea-de-la-casa.png" style="width:20px;padding-right:7px">Inicio</a>
+            <a href="services.html"><img src="img/iconos/bolsas-de-compras.png" style="width:22px;padding-right:7px">Servicios</a>
+            <a href="gallery.html"><img src="img/iconos/copiar-imagen.png" style="width:23px;padding-right:7px">Galería</a>
+            <a href="reviews.html"><img src="img/iconos/revision-de-comentarios.png" style="width:23px;padding-right:7px">Reseñas</a>
+            <a href="appointments.html"><img src="img/iconos/dia-del-calendario.png" style="width:20px;padding-right:7px">Citas</a>
+            <a href="perfil.html"><img src="img/iconos/lapiz-de-usuario.png" style="width:21px;padding-right:7px">Perfil</a>
             <a href="login.html">Iniciar Sesión</a>
         </div>
     </nav>
-    </header>
+</header>
 
-    <main class="cita-container">
+<main class="cita-container">
 
-    <h1 class="title">Agendar una Cita</h1>
-    <p class="subtitle">Selecciona el servicio, especialista, fecha y hora.</p>
+    <h1 class="title" style="text-align:center; color:#6B0C17; font-family:'Poppins',sans-serif; padding-top:30px;">Agenda tu Cita</h1>
+    <p class="subtitle" style="text-align:center; color:#888; font-family:'Poppins',sans-serif;">Reserva tu servicio en 4 sencillos pasos</p>
 
-        <!-- Seleccionar servicio -->
-        <div id="paso1">
-            <h3>Paso 1: Selecciona un servicio</h3>
-            <select id="servicioSelect" class="form-control" required>
-                <option value="">Seleccione...</option>
-            </select>
-            <button class="btn-primary btn-error mt-3" 
-            onclick="nextStep(1)" style="margin-bottom: 35px;">Siguiente</button>
+    <!-- STEPPER -->
+    <div class="stepper">
+        <div class="step active" id="stepCircle1">
+            <div class="step-circle">📋</div>
+            <span class="step-label">Servicio</span>
         </div>
-
-        <!-- Seleccionar empleado -->
-        <div id="paso2" class="d-none">
-            <h3>Paso 2: Selecciona a tu manicurista</h3>
-            <select id="empleadoSelect" class="form-control" required
-            onchange="generarHorasDisponibles()">
-                <option value="">Seleccione...</option>
-            </select>
-            <button class="btn-primary btn-error mt-3" 
-            onclick="nextStep(2)" style="margin-bottom: 35px;">Siguiente</button>
+        <div class="step-line" id="line1"></div>
+        <div class="step" id="stepCircle2">
+            <div class="step-circle">👤</div>
+            <span class="step-label">Especialista</span>
         </div>
-
-        <!-- Fecha -->
-        <div id="paso3" class="d-none">
-            <h3>Paso 3: Selecciona una fecha</h3>
-            <input id="fechaInput" type="date" class="form-control" required
-            onchange="generarHorasDisponibles()">
-            <button class="btn-primary btn-error mt-3" 
-            onclick="nextStep(3)" style="margin-bottom: 35px;">Siguiente</button>
+        <div class="step-line" id="line2"></div>
+        <div class="step" id="stepCircle3">
+            <div class="step-circle">📅</div>
+            <span class="step-label">Fecha</span>
         </div>
-
-        <!-- Hora -->
-        <div id="paso4" class="d-none">
-            <h3>Paso 4: Selecciona una hora disponible</h3>
-            <div id="horaContainer"></div>
-            <input type="time" id="horaInput" class="form-control"
-            step="3600" min="09:00" max="17:00" required readonly>
-            <button class="btn-primary btn-error mt-3" 
-            onclick="nextStep(4)" style="margin-bottom: 35px;">Siguiente</button>
+        <div class="step-line" id="line3"></div>
+        <div class="step" id="stepCircle4">
+            <div class="step-circle">🕐</div>
+            <span class="step-label">Hora</span>
         </div>
+    </div>
 
-        <!-- Resumen cita -->
-        <div id="paso5" class="d-none">
-            <h3>Resumen de tu cita</h3>
-            <div id="resumenBox" class="tarjeta" style="background:#fff; padding:15px; border-radius:12px;">
-                <!--Js llena esto-->
-            </div>
-            <button class="btn-primary btn-error mt-03" 
-            onclick="nextStep(5)" style="margin-bottom: 35px;">Continuar</button>
-        </div>
+    <!-- PASO 1: Servicio -->
+    <div class="paso-card" id="paso1">
+        <h3>Selecciona el Servicio</h3>
+        <div class="servicios-grid" id="serviciosGrid"></div>
+        <button class="btn-siguiente" onclick="irPaso(2)">Siguiente →</button>
+    </div>
 
-        <!-- Subir comprobante -->
-        <div id="paso6" class="d-none">
-            <h3>Paso 5: Subir comprobante (10% del valor)</h3>
-            <input type="file" id="comprobante" accept="image/*" class="form-control" required>
-            <button class="btn-primary btn-error mt-3" 
-            onclick="nextStep(6)" style="margin-bottom: 35px;">Finalizar</button>
-        </div>
+    <!-- PASO 2: Especialista -->
+    <div class="paso-card d-none" id="paso2">
+        <h3>Selecciona tu Especialista</h3>
+        <div class="empleados-grid" id="empleadosGrid"></div>
+        <button class="btn-volver" onclick="irPaso(1)">← Volver</button>
+        <button class="btn-siguiente" onclick="irPaso(3)">Siguiente →</button>
+    </div>
 
-        <!-- Finalizar -->
-        <div id="paso7" class="d-none">
-            <h3>Confirmar</h3>
-            <div id="resumenFinal" class="tarjeta" style="background:#fff; padding:15px; border-radius:12px;">
-                <!-- JS llena esto -->
-            </div>
-            
-            <button class="btn-primary btn-error mt-3" onclick="guardarCita()">Confirmar Cita</button>
-        </div>
+    <!-- PASO 3: Fecha -->
+    <div class="paso-card d-none" id="paso3">
+        <h3>Selecciona la Fecha</h3>
+        <input type="date" id="fechaInput" class="form-control" style="max-width:300px; margin-bottom:15px;">
+        <button class="btn-volver" onclick="irPaso(2)">← Volver</button>
+        <button class="btn-siguiente" onclick="irPaso(4)">Siguiente →</button>
+    </div>
 
-    <!-- Citas registradas -->
-    <div class="tarjeta mt-4" style="background-color: #fff;">
+    <!-- PASO 4: Hora -->
+    <div class="paso-card d-none" id="paso4">
+        <h3>Selecciona la Hora</h3>
+        <div class="horas-grid" id="horasGrid"></div>
+        <button class="btn-volver" onclick="irPaso(3)">← Volver</button>
+        <button class="btn-siguiente" onclick="confirmarCita()">Confirmar Cita ✓</button>
+    </div>
+
+    <!-- RESUMEN FINAL -->
+    <div class="paso-card d-none" id="paso5">
+        <h3>✅ ¡Cita Confirmada!</h3>
+        <div id="resumenFinal"></div>
+        <button class="btn-siguiente" onclick="nuevaCita()">Agendar otra cita</button>
+    </div>
+
+    <!-- MIS CITAS -->
+    <div class="citas-tabla">
         <h3>Mis Citas Registradas</h3>
-
         <table class="table text-center">
             <thead>
                 <tr>
                     <th>Servicio</th>
                     <th>Especialista</th>
                     <th>Fecha</th>
-                    <th>Hora</th>
+                    <th>Estado</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -128,12 +379,11 @@
 
 </main>
 
+<footer id="footer">
+    © 2025 Beauty Code – Agenda de Manicura
+    <br> Desarrollado por Iron Code
+</footer>
 
-    <footer id="footer">
-        © 2025 Beauty Code – Agenda de Manicura
-        <br> Desarrollado por Iron Code
-    </footer>
-    
-    <script src="js/appointments.js"></script>
+<script src="js/appointments.js"></script>
 </body>
 </html>

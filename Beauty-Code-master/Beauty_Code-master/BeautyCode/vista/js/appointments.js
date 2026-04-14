@@ -1,190 +1,199 @@
-/*******************************
- * CONFIGURACIÓN GENERAL
- *******************************/
 const API_URL = "http://localhost:5227/api";
 
 let servicios = [];
+let empleados = [];
 let citas = [];
 
-// ⚠️ Temporal (hasta que empleados vengan del backend)
-let empleados = [
-    { id: "1", nombre: "Camila" },
-    { id: "2", nombre: "Daniela" },
-    { id: "3", nombre: "Sofía" }
-];
+let selServicio = null;
+let selEmpleado = null;
+let selFecha = null;
+let selHora = null;
 
-// Disponibilidad definida por admin
-const disponibilidad = {
-    diasHabiles: [1, 2, 3, 4, 5], // Lunes a Viernes
-    horaInicio: "09:00",
-    horaFin: "17:00"
-};
+let pasoActual = 1;
 
-/*******************************
- * CARGA INICIAL
- *******************************/
 document.addEventListener("DOMContentLoaded", () => {
     cargarServicios();
     cargarEmpleados();
     cargarCitas();
+
+    const hoy = new Date().toISOString().split("T")[0];
+    document.getElementById("fechaInput").min = hoy;
 });
 
-/*******************************
- * BACKEND → DATOS
- *******************************/
+// ===== CARGAR DATOS =====
 async function cargarServicios() {
     try {
-        const res = await fetch(`${API_URL}/servicios`);
-        if (!res.ok) throw new Error("Error cargando servicios");
-
+        const res = await fetch(`${API_URL}/Servicios`);
         servicios = await res.json();
-
-        const select = document.getElementById("servicioSelect");
-        select.innerHTML = `<option value="">Seleccione...</option>`;
-
-        servicios.forEach(s => {
-            const option = document.createElement("option");
-            option.value = s.id;
-            option.textContent = `${s.nombre} ($${s.precio.toLocaleString()})`;
-            select.appendChild(option);
-        });
-
+        pintarServicios();
     } catch (error) {
-        console.error(error);
-        alert("No se pudieron cargar los servicios");
+        console.error("Error cargando servicios:", error);
+    }
+}
+
+async function cargarEmpleados() {
+    try {
+        const res = await fetch(`${API_URL}/Usuarios`);
+        const usuarios = await res.json();
+        empleados = usuarios.filter(u => u.idRol === 3);
+        pintarEmpleados();
+    } catch (error) {
+        console.error("Error cargando empleados:", error);
     }
 }
 
 async function cargarCitas() {
     try {
         const res = await fetch(`${API_URL}/Agenda`);
-        if (!res.ok) throw new Error("Error cargando citas");
-
         citas = await res.json();
-        mostrarCitas();
-
+        pintarCitas();
     } catch (error) {
-        console.error(error);
+        console.error("Error cargando citas:", error);
     }
 }
 
-function cargarEmpleados() {
-    const select = document.getElementById("empleadoSelect");
-    select.innerHTML = `<option value="">Seleccione...</option>`;
+// ===== PINTAR TARJETAS =====
+function pintarServicios() {
+    const grid = document.getElementById("serviciosGrid");
+    grid.innerHTML = "";
 
-    empleados.forEach(e => {
-        const option = document.createElement("option");
-        option.value = e.id;
-        option.textContent = e.nombre;
-        select.appendChild(option);
+    servicios.forEach(s => {
+        const card = document.createElement("div");
+        card.className = "servicio-card";
+        card.innerHTML = `
+            <div class="nombre">✨ ${s.nombre}</div>
+            <div class="duracion">⏱ ${s.duracionMinutos || 60} min</div>
+            <div class="precio">$${Number(s.precio).toLocaleString()}</div>
+            <div style="font-size:12px;color:#888;margin-top:5px;">${s.descripcion || ""}</div>
+        `;
+        card.onclick = () => {
+            document.querySelectorAll(".servicio-card").forEach(c => c.classList.remove("selected"));
+            card.classList.add("selected");
+            selServicio = s;
+        };
+        grid.appendChild(card);
     });
 }
 
-/*******************************
- * VALIDACIONES
- *******************************/
-function validarFecha() {
-    const fecha = document.getElementById("fechaInput").value;
-    if (!fecha) return alert("Selecciona una fecha"), false;
+function pintarEmpleados() {
+    const grid = document.getElementById("empleadosGrid");
+    grid.innerHTML = "";
 
-    const date = new Date(fecha);
-    const hoy = new Date();
-    hoy.setHours(0, 0, 0, 0);
-
-    if (date < hoy) return alert("Fecha inválida"), false;
-
-    const dia = date.getDay();
-    if (!disponibilidad.diasHabiles.includes(dia))
-        return alert("Solo lunes a viernes"), false;
-
-    return true;
-}
-
-function validarHora() {
-    const hora = document.getElementById("horaInput").value;
-    if (!hora) return alert("Selecciona una hora"), false;
-
-    if (hora < disponibilidad.horaInicio || hora > disponibilidad.horaFin)
-        return alert("Fuera de horario"), false;
-
-    return true;
-}
-
-/*******************************
- * FLUJO DE PASOS
- *******************************/
-function nextStep(step) {
-    if (step === 1 && !servicioSeleccionado()) return;
-    if (step === 2 && !empleadoSeleccionado()) return;
-    if (step === 3 && !validarFecha()) return;
-    if (step === 4 && !validarHora()) return;
-
-    if (step === 4) generarResumen();
-
-    document.getElementById("paso" + (step + 1)).classList.remove("d-none");
-}
-
-function servicioSeleccionado() {
-    if (!document.getElementById("servicioSelect").value) {
-        alert("Selecciona un servicio");
-        return false;
+    if (empleados.length === 0) {
+        grid.innerHTML = "<p style='color:#888'>No hay especialistas disponibles</p>";
+        return;
     }
-    return true;
-}
 
-function empleadoSeleccionado() {
-    if (!document.getElementById("empleadoSelect").value) {
-        alert("Selecciona un especialista");
-        return false;
-    }
-    return true;
-}
-
-/*******************************
- * RESUMEN
- *******************************/
-function generarResumen() {
-    const servicio = servicios.find(
-        s => s.id === document.getElementById("servicioSelect").value
-    );
-    const empleado = empleados.find(
-        e => e.id === document.getElementById("empleadoSelect").value
-    );
-
-    const fecha = document.getElementById("fechaInput").value;
-    const hora = document.getElementById("horaInput").value;
-    const adelanto = servicio.precio * 0.1;
-
-    document.getElementById("resumenBox").innerHTML = `
-        <p><strong>Servicio:</strong> ${servicio.nombre}</p>
-        <p><strong>Especialista:</strong> ${empleado.nombre}</p>
-        <p><strong>Fecha:</strong> ${fecha}</p>
-        <p><strong>Hora:</strong> ${hora}</p>
-        <hr>
-        <p><strong>Total:</strong> $${servicio.precio.toLocaleString()}</p>
-        <p><strong>Adelanto:</strong> $${adelanto.toLocaleString()}</p>
-    `;
-}
-
-/*******************************
- * GUARDAR CITA (BACKEND REAL)
- *******************************/
-async function guardarCita() {
-    try {
-        const servicioId = document.getElementById("servicioSelect").value;
-        const fecha = document.getElementById("fechaInput").value;
-        const hora = document.getElementById("horaInput").value;
-
-        const servicio = servicios.find(s => s.id === servicioId);
-
-        const nuevaCita = {
-            codAgenda: 1,
-            fecha: fecha,
-            hora: hora,
-            estado: "Pendiente",
-            idCatalogo: 1
+    empleados.forEach(e => {
+        const card = document.createElement("div");
+        card.className = "empleado-card";
+        card.innerHTML = `
+            <div class="avatar">💅</div>
+            <div class="emp-nombre">${e.nombre}</div>
+        `;
+        card.onclick = () => {
+            document.querySelectorAll(".empleado-card").forEach(c => c.classList.remove("selected"));
+            card.classList.add("selected");
+            selEmpleado = e;
         };
+        grid.appendChild(card);
+    });
+}
 
+function pintarHoras() {
+    const grid = document.getElementById("horasGrid");
+    grid.innerHTML = "";
+
+    const horas = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"];
+
+    horas.forEach(h => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "hora-btn";
+        btn.textContent = h;
+        btn.onclick = () => {
+            document.querySelectorAll(".hora-btn").forEach(b => b.classList.remove("selected"));
+            btn.classList.add("selected");
+            selHora = h;
+        };
+        grid.appendChild(btn);
+    });
+}
+
+function pintarCitas() {
+    const tbody = document.getElementById("tablaCitas");
+    tbody.innerHTML = "";
+
+    if (citas.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" style="color:#888">No tienes citas registradas</td></tr>`;
+        return;
+    }
+
+    citas.forEach(c => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td>${c.idServicios || "-"}</td>
+            <td>${c.idEmpleado || "-"}</td>
+            <td>${c.fecha ? c.fecha.split("T")[0] : "-"}</td>
+            <td>${c.estado}</td>
+            <td>
+                <button onclick="cancelarCita(${c.idAgenda})" 
+                class="btn btn-danger btn-sm">Cancelar</button>
+            </td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+// ===== NAVEGACIÓN PASOS =====
+function irPaso(paso) {
+    if (paso === 2 && !selServicio) return alert("Selecciona un servicio");
+    if (paso === 3 && !selEmpleado) return alert("Selecciona un especialista");
+    if (paso === 4) {
+        selFecha = document.getElementById("fechaInput").value;
+        if (!selFecha) return alert("Selecciona una fecha");
+        pintarHoras();
+    }
+
+    document.getElementById("paso" + pasoActual).classList.add("d-none");
+    document.getElementById("paso" + paso).classList.remove("d-none");
+
+    actualizarStepper(paso);
+    pasoActual = paso;
+}
+
+function actualizarStepper(paso) {
+    for (let i = 1; i <= 4; i++) {
+        const circle = document.getElementById("stepCircle" + i);
+        circle.classList.remove("active", "done");
+        if (i < paso) circle.classList.add("done");
+        if (i === paso) circle.classList.add("active");
+
+        if (i < 4) {
+            const line = document.getElementById("line" + i);
+            line.classList.toggle("done", i < paso);
+        }
+    }
+}
+
+// ===== CONFIRMAR CITA =====
+async function confirmarCita() {
+    if (!selHora) return alert("Selecciona una hora");
+
+    const nuevaCita = {
+        codAgenda: Date.now().toString().slice(-8),
+        fecha: `${selFecha}T${selHora}:00`,
+        estado: "Pendiente",
+        creadoEn: new Date().toISOString(),
+        idCatalogo: 1,
+        idUsuario: 4,
+        idEmpleado: selEmpleado.idUsuario,
+        idServicios: selServicio.idServicios
+    };
+
+    console.log("Datos a enviar:", JSON.stringify(nuevaCita));
+
+    try {
         const res = await fetch(`${API_URL}/Agenda`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -193,8 +202,31 @@ async function guardarCita() {
 
         if (!res.ok) throw new Error("Error guardando cita");
 
-        alert("Cita registrada correctamente");
-        limpiarFormulario();
+        document.getElementById("resumenFinal").innerHTML = `
+            <div class="resumen-item">
+                <span class="resumen-label">Servicio</span>
+                <span class="resumen-valor">${selServicio.nombre}</span>
+            </div>
+            <div class="resumen-item">
+                <span class="resumen-label">Especialista</span>
+                <span class="resumen-valor">${selEmpleado.nombre}</span>
+            </div>
+            <div class="resumen-item">
+                <span class="resumen-label">Fecha</span>
+                <span class="resumen-valor">${selFecha}</span>
+            </div>
+            <div class="resumen-item">
+                <span class="resumen-label">Hora</span>
+                <span class="resumen-valor">${selHora}</span>
+            </div>
+            <div class="resumen-item">
+                <span class="resumen-label">Total</span>
+                <span class="resumen-valor" style="color:#6B0C17">$${Number(selServicio.precio).toLocaleString()}</span>
+            </div>
+        `;
+
+        document.getElementById("paso" + pasoActual).classList.add("d-none");
+        document.getElementById("paso5").classList.remove("d-none");
         cargarCitas();
 
     } catch (error) {
@@ -203,36 +235,32 @@ async function guardarCita() {
     }
 }
 
-/*******************************
- * MOSTRAR CITAS
- *******************************/
-function mostrarCitas() {
-    const tabla = document.getElementById("tablaCitas");
-    if (!tabla) return;
-
-    tabla.innerHTML = "";
-
-    citas.forEach(c => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-            <td>${c.servicioId}</td>
-            <td>${c.fecha}</td>
-            <td>${c.hora}</td>
-            <td>${c.estado}</td>
-        `;
-        tabla.appendChild(tr);
-    });
+// ===== CANCELAR CITA =====
+async function cancelarCita(id) {
+    if (!confirm("¿Cancelar esta cita?")) return;
+    try {
+        await fetch(`${API_URL}/Agenda/${id}`, { method: "DELETE" });
+        cargarCitas();
+    } catch (error) {
+        console.error("Error cancelando cita:", error);
+    }
 }
 
-/*******************************
- * UTILIDADES
- *******************************/
-function limpiarFormulario() {
-    ["servicioSelect", "empleadoSelect", "fechaInput", "horaInput"]
-        .forEach(id => document.getElementById(id).value = "");
+// ===== NUEVA CITA =====
+function nuevaCita() {
+    selServicio = null;
+    selEmpleado = null;
+    selFecha = null;
+    selHora = null;
+    pasoActual = 1;
 
-    for (let i = 2; i <= 7; i++) {
-        const paso = document.getElementById("paso" + i);
-        if (paso) paso.classList.add("d-none");
+    document.querySelectorAll(".servicio-card, .empleado-card, .hora-btn")
+        .forEach(el => el.classList.remove("selected"));
+    document.getElementById("fechaInput").value = "";
+
+    for (let i = 2; i <= 5; i++) {
+        document.getElementById("paso" + i).classList.add("d-none");
     }
+    document.getElementById("paso1").classList.remove("d-none");
+    actualizarStepper(1);
 }
